@@ -10,7 +10,6 @@ pipeline {
         }
         stage('Build') {
             steps {
-                git 'https://github.com/TranThang-2804/Devops-full-architect'
                 echo 'pulled git repo'
                 // Run Maven on a Unix agent.
                 echo 'Start building project'
