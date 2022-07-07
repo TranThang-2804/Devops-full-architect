@@ -19,7 +19,7 @@ pipeline {
                 echo 'DEPENDENCIES INSTALLED'
 
                 echo 'BUILDING ARTIFACT'
-                sh       
+                
                 echo 'ARTIFACT BUILT'
 
                 echo 'finished building'
