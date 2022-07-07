@@ -31,6 +31,7 @@ pipeline {
             steps {
                 echo 'CREATING DOCKER IMAGE'
                 sh 'users'
+                sh 'chmod 777 /var/run/docker.sock'
                 sh 'sudo usermod -aG docker jenkins'
                 sh 'docker build -t webservice:current .'
             }
