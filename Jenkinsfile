@@ -19,7 +19,7 @@ pipeline {
                 echo 'DEPENDENCIES INSTALLED'
 
                 echo 'BUILDING ARTIFACT'
-                sh 'npm build'
+                sh 'npm run build'
                 echo 'ARTIFACT BUILT'
 
                 echo 'finished building'
