@@ -5,7 +5,7 @@ pipeline {
         stage('Pre build') {
             steps {
                 echo 'INSTALL ENVIRONMENT'
-                sh 'sudo apt -y install npm'
+                sh 'apt -y install npm'
             }
         }
         stage('Build') {
