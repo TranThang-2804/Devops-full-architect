@@ -19,7 +19,7 @@ pipeline {
                 echo 'DEPENDENCIES INSTALLED'
 
                 echo 'BUILDING ARTIFACT'
-                sh 'npm run build'
+                sh       
                 echo 'ARTIFACT BUILT'
 
                 echo 'finished building'
@@ -30,6 +30,7 @@ pipeline {
         stage('Create Docker Image') {
             steps {
                 echo 'CREATING DOCKER IMAGE'
+                sh 'sudo usermod -aG docker jenkins'
                 sh 'docker build -t webservice:current .'
             }
 
