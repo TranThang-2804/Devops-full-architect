@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.597377f5.css",
+    "main.js": "/static/js/main.8cb60dc4.js",
+    "static/media/plane-and-sky.jpg": "/static/media/plane-and-sky.894a6b43f9be770eec6c.jpg",
+    "static/media/sunset-beach.jpg": "/static/media/sunset-beach.6d14a8e5f7debd85abad.jpg",
+    "index.html": "/index.html",
+    "main.597377f5.css.map": "/static/css/main.597377f5.css.map",
+    "main.8cb60dc4.js.map": "/static/js/main.8cb60dc4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.597377f5.css",
+    "static/js/main.8cb60dc4.js"
+  ]
+}

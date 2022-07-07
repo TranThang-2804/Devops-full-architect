@@ -1,0 +1,17 @@
+#!/bin/bash
+sudo rm -rf /etc/nginx/sites-available/travelwala
+sudo rm -rf /etc/nginx/sites-enabled/default
+sudo rm -rf /etc/nginx/sites-enabled/travelwala
+
+sudo echo -e "server {
+  listen 80 default_server; 
+  listen [::]:80 default_server; 
+  root /var/www/travelwala; 
+  index index.html;
+  server_name _;
+  location / {
+    try_files \$uri \$uri/ /index.html;
+  }
+}" > /etc/nginx/sites-available/travelwala
+
+sudo ln -s /etc/nginx/sites-available/travelwala /etc/nginx/sites-enabled/travelwala

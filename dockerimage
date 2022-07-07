@@ -1,0 +1,17 @@
+#!/bin/bash
+rm -rf /etc/nginx/sites-available/default
+rm -rf /etc/nginx/sites-enabled/default
+rm -rf /etc/nginx/sites-enabled/default
+
+echo -e "server {
+  listen 80 default_server; 
+  listen [::]:80 default_server; 
+  root /var/www/html; 
+  index index.html;
+  server_name _;
+  location / {
+    try_files \$uri \$uri/ /index.html;
+  }
+}" > /etc/nginx/sites-available/default
+
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+isExistApp=`sudo service --status-all | grep nginx | grep [+]`
+
+if [[ -n $isExistApp ]]
+then
+    service nginx restart    
+    echo "restart nginx server"    
+else
+    service nginx start
+    echo "start nginx server"
+fi 
+
