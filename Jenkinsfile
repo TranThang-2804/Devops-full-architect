@@ -5,7 +5,7 @@ pipeline {
         stage('Pre build') {
             steps {
                 echo 'INSTALL ENVIRONMENT'
-                sh 'sudo apt -y install npm'
+                sh 'apt -y install npm'
             }
         }
         stage('Build') {
@@ -26,17 +26,11 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-
-            post {
-                success {
-                    archiveArtifacts 'target/*.jar'
-                    echo 'Succecced building project'
-                }
-            }
         }
         stage('Create Docker Image') {
             steps {
                 echo 'CREATING DOCKER IMAGE'
+                sh 'docker build -t webservice:current .'
             }
 
         }
