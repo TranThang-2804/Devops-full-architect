@@ -50,12 +50,12 @@ pipeline {
         stage('Deploy on Docker Swarm') {
             steps {
                 echo 'DEPLOY ON DOCKER SWARM'
-                sh 'docker service update 
-                    --rollback 
-                    --update-paralellelism 1
-                    --update-delay 10s
-                    --image current
-                    --force
+                sh 'docker service update \
+                    --rollback \
+                    --update-paralellelism 1 \
+                    --update-delay 10s \
+                    --image current \
+                    --force \
                     webapp'
                 sh 'UPDATED IMAGE FOR SERVICE ON DOCKER SWARM'
             }
