@@ -58,7 +58,7 @@ pipeline {
                     --image current \
                     --force \
                     webapp'
-                sh 'echo UPDATED IMAGE FOR SERVICE ON DOCKER SWARM1'
+                sh 'echo UPDATED IMAGE FOR SERVICE ON DOCKER SWARM'
             }
         }
     }
