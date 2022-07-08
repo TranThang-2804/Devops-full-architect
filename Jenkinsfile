@@ -34,7 +34,6 @@ pipeline {
         stage('Create Docker Image') {
             steps {
                 echo 'CREATING DOCKER IMAGE'
-                sh 'users'
                 sh 'sudo usermod -aG docker jenkins'
                 sh 'newgrp docker'
                 sh 'docker build -t webservice:current .'
