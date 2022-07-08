@@ -5,10 +5,6 @@ pipeline {
         stage('Pre build') {
             steps {
                 echo 'INSTALL ENVIRONMENT'
-                echo 'INSTALLING NODE14'
-                sh 'curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - sudo apt-get install -y nodejs'
-                echo 'INSTALLED NODE14'
-                sh 'sudo apt -y install npm'
                 sh 'sudo npm install -g npm@8.13.2'
             }
         }
