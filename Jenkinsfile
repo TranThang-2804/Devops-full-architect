@@ -41,10 +41,22 @@ pipeline {
             }
 
         }
+        stage('Push to registry') {
+            steps {
+                sh 'docker image tag webservice:current tranthang2804/webservice:current'
+                sh 'docker image push tranthang2804/webservice:current'
+            }
+        }
         stage('Deploy on Docker Swarm') {
             steps {
                 echo 'DEPLOY ON DOCKER SWARM'
-                sh 'test'
+                sh 'docker service update 
+                    --rollback 
+                    --update-paralellelism 1
+                    --update-delay 10s
+                    --image current
+                    --force
+                    webapp'
                 sh 'UPDATED IMAGE FOR SERVICE ON DOCKER SWARM'
             }
         }
