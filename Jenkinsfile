@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy on Docker Swarm') {
             steps {
                 echo 'DEPLOY ON DOCKER SWARM'
-                sh 'echo date hi thang shiro'
+                sh 'echo date'
             }
         }
     }
