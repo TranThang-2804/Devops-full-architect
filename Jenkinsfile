@@ -53,7 +53,7 @@ pipeline {
                 echo 'DEPLOY ON DOCKER SWARM'
                 sh 'docker service update \
                     --rollback \
-                    --update-paralellelism 1 \
+                    --update-paralellism 1 \
                     --update-delay 10s \
                     --image current \
                     --force \
