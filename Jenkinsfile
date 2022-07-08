@@ -45,7 +45,7 @@ pipeline {
             steps {
                 sh 'docker image tag webservice:current tranthang2804/webservice:current'
                 sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
-                sh 'image push tranthang2804/webservice:current'
+                sh 'docker image push tranthang2804/webservice:current'
             }
         }
         stage('Deploy on Docker Swarm') {
