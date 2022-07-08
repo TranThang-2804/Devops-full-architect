@@ -54,7 +54,7 @@ pipeline {
                 sh 'docker service update \
                     --update-parallelism 1 \
                     --update-delay 10s \
-                    --image current \
+                    --image tranthang2804/webservice:current \
                     --force \
                     webapp'
                 sh 'echo UPDATED IMAGE FOR SERVICE ON DOCKER SWARMM'
