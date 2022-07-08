@@ -15,7 +15,7 @@ pipeline {
                 echo 'Start building project'
 
                 echo 'INSTALLING DEPENDENCIES'
-                sh 'npm install'
+                sh 'npm install npm@latest -g'
                 echo 'DEPENDENCIES INSTALLED'
 
                 echo 'BUILDING ARTIFACT'
