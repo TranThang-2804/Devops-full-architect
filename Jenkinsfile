@@ -52,7 +52,6 @@ pipeline {
             steps {
                 echo 'DEPLOY ON DOCKER SWARM'
                 sh 'docker service update \
-                    --rollback \
                     --update-parallelism 1 \
                     --update-delay 10s \
                     --image current \
