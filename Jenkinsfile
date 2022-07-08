@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         CI = 'false'
+        dockerhub=credentials('dockerhub')
     }
 
     stages {
