@@ -16,7 +16,7 @@ const Booking = () => {
         <Grid container spacing={2}>
             <Grid item xs={12}>
                 <div>
-                    <h1>Contact Details</h1>
+                    <h1>Contact Details THangshiro</h1>
                 </div>
             </Grid>
             <Grid item xs={7.5}>
