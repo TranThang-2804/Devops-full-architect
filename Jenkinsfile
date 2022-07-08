@@ -19,7 +19,7 @@ pipeline {
                 echo 'DEPENDENCIES INSTALLED'
 
                 echo 'BUILDING ARTIFACT'
-                
+                sh 'npm run build'
                 echo 'ARTIFACT BUILT'
 
                 echo 'finished building'
@@ -31,8 +31,8 @@ pipeline {
             steps {
                 echo 'CREATING DOCKER IMAGE'
                 sh 'users'
-                sh 'sudo chmod 777 /var/run/docker.sock'
                 sh 'sudo usermod -aG docker jenkins'
+                sh 'newgrp docker'
                 sh 'docker build -t webservice:current .'
             }
 
