@@ -1,31 +1,37 @@
 
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: >
-  Here are some
-  details about
-  the template.
+Description: 
+	This is infras as code (IaC) for the FrontEnd reactJS
+	named TravelWala.
+	This will be built based on nested stack structure.
 
-Metadata:
-  template metadata
+Parameter:
+	InfrasCodeURL: 
+		Description: The URL point to the nested cloudformation code (link to that on the github repo)
+		Type: String
 
-Parameters:
-  set of parameters
-
-Rules:
-  set of rules
+	NetworkFormationURL:
+		Description: URL for the nested network stack template
+		Type: String
 
 Mappings:
-  set of mappings
+	set of mappings
 
 Conditions:
-  set of conditions
-
-Transform:
-  set of transforms
+	set of conditions
 
 Resources:
-  set of resources
+	NetworkFormationStack:
+		Type: 'AWS::CloudFormation::Stack'
+		Properties:
+			TemplateURL: !Ref NetworkFormationURL
+			Parameters:
+				ApplicationName: !Ref AWS::StackName
+				VPCId: !Ref VPCId
+			TimeoutInMinutes: 5
+
+
 
 Outputs:
-  set of outputs
+	set of outputs

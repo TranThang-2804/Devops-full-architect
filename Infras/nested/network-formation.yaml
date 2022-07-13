@@ -1,0 +1,82 @@
+
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: 
+	This is infras as code (IaC) for the FrontEnd reactJS
+	named TravelWala.
+	This will be built based on nested stack structure. This code formation is for network architect
+
+Parameter:
+
+
+Mappings:
+	set of mappings
+
+Resources:
+	MyVPC:
+		Type: 'AWS::EC2::VPC'
+		Properties:
+			CidrBlock: '10.0.0.0/16'
+			EnableDnsHostnames: true
+			EnableDnsSupport: true
+			Tags: 
+				- Key: "Name"
+				- Name: "Tran-Thang-VPC"
+	
+	NetworkAcl:
+		Type: 'AWS::EC2::NetworkAcl'
+		Properties:
+			VpcId: !GetAtt MyVPC.VpcId
+			Tags:
+				- 	Key: Name
+					Value: Tran-Thang-NACL
+
+	NetworkAclEntryForVPC:
+		Type: AWS::EC2::NetworkAclEntry
+		Properties: 
+			CidrBlock: 0.0.0.0/0
+			Egress: true
+			NetworkAclId: !GetAtt NetworkAcl.Id
+			PortRange: 
+				- 	From: 0
+					To: 6000
+			Protocol: -1
+			RuleAction: Allow
+			RuleNumber: 50
+
+	PublicSubnet:
+		Type: 'AWS::EC2::Subnet'
+		Properties: 
+			AvailabilityZone: !Ref 
+			CidrBlock: 10.0.0.0/24
+			MapPublicIpOnLaunch: true
+			Tags: 
+				- 	Key: Name
+					Value: tranthang-public-subnet
+			VpcId: !GetAtt MyVPC.VpcId
+
+	PrivateSubnet:
+	Type: 'AWS::EC2::Subnet'
+	Properties: 
+		AvailabilityZone: !Ref 
+		CidrBlock: 10.0.1.0/24
+		MapPublicIpOnLaunch: false
+		Tags: 
+			- 	Key: Name
+				Value: tranthang-private-subnet
+		MyVPC: !GetAtt MyVPC.VpcId
+
+
+
+Outputs:
+	MyVPC:
+		Value: !Ref MyVPC
+		Description: The VPC of the infras
+
+	PublicSubnet:
+		Value: !Ref PublicSubnet
+		Description: The public subnet
+	
+	PrivateSubnet:
+		Value: !Ref PrivateSubnet
+		Description: The private subnet
